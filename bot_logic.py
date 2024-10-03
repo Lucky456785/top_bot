@@ -22,4 +22,22 @@ def flip_coin():
         return "ОРЕЛ"
     else:
         return "РЕШКА"
+
+import discord 
+import random 
+
+client = discord.Client() 
+
+@client.event 
+async def on_ready(): 
+  print(f'We have logged in as {client.user}') 
+
+@client.event 
+async def on_message(message): 
+  if message.author   == client.user: 
+    return 
+
+  if message.content.startswith('!подбрось'): 
+    result = random.choices(["Вариант 1", "Вариант 2"], weights=[0.5, 0.5])[0]  # 50/50 шанс для каждого варианта 
+    await message.channel.send(f'Результат: {result}') 
  
