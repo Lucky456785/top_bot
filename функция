@@ -1,0 +1,8 @@
+@app.route("/random_fact") def facts(): return f'
+
+{random.choice(facts_list)}
+
+' @app.route('/password') def password(): parts = "+-/*!&$#?=@<>" password = "" pass_length = int(input("Enter pass length: "))
+for i in range(pass_length): password += random.choice(parts)
+
+print(password) app.run(debug=True)
